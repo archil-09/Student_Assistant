@@ -1,3 +1,6 @@
 langchain-docling
 langgraph
 langchain
+langchain-huggingface
+langchain-chroma
+

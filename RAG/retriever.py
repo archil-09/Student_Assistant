@@ -1,4 +1,4 @@
-from config import GROQ_API_KEY, EMBED_MODEL_ID, CHROMA_DIR
+from .config import GROQ_API_KEY, EMBED_MODEL_ID, CHROMA_DIR
 import os
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings

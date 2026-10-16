@@ -8,7 +8,7 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 FILE_PATH = r"C:\Users\Archi\Desktop\student_assistant\data\BTech_FAQs.pdf"
-
+mtech_vi = "data/M.Tech_IV.pdf"
 def build_index():
     loader = DoclingLoader(
         file_path=FILE_PATH,

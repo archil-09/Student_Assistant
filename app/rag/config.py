@@ -2,8 +2,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-BASE_DIR = Path(__file__).resolve().parent          # RAG/
-ROOT_DIR = BASE_DIR.parent                            # student_assistant/
+BASE_DIR = Path(__file__).resolve().parent  # app/rag/
+ROOT_DIR = BASE_DIR.parents[1]  # student_assistant/
+
+load_dotenv(dotenv_path=ROOT_DIR / ".env")
+# student_assistant/
 
 load_dotenv(dotenv_path=ROOT_DIR / ".env")
 

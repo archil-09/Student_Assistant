@@ -15,4 +15,4 @@ if not GROQ_API_KEY:
     raise ValueError(f"GROQ_API_KEY not found. Checked: {ROOT_DIR / '.env'}")
 
 EMBED_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
-CHROMA_DIR = str(BASE_DIR / "chroma_db")
+CHROMA_DIR = str(ROOT_DIR / "chroma_db")

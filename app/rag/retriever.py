@@ -13,13 +13,14 @@ vectorstore = Chroma(
     persist_directory=CHROMA_DIR,
     embedding_function=embeddings,
 )
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 
 llm = ChatGroq(api_key=GROQ_API_KEY, model="openai/gpt-oss-120b", temperature=0)
 
 prompt = ChatPromptTemplate.from_template(
-    """Answer based only on the following context.
-If the answer isn't in the context, say you don't know.
+    """Answer using the context below.
+If the context only partly answers the question, give what is available.
+Only say "I don't know" if the context has nothing relevant.
 
 Context:
 {context}
@@ -36,5 +37,5 @@ def ask(query: str):
     return rag_chain.invoke({"input": query})
 
 if __name__ == "__main__":
-    result = ask("Does the institute support extracurricular activities?")
+    result = ask("what is the syllabus of mtech 4th sem iips davv")
     print(result["answer"])

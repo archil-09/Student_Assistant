@@ -22,10 +22,16 @@ if not groq_api_key:
 # ---------------------------------------------------------------
 # 2. Convert PDF -> Docling document
 # ---------------------------------------------------------------
-PDF_PATH = r"C:\Users\Archi\Desktop\student_assistant\data\BTech_FAQs.pdf"  # adjust path as needed
+PDF_PATHS = [
+    r"C:\Users\Archi\Desktop\student_assistant\data\BTech_FAQs.pdf",
+    r"C:\Users\Archi\Desktop\student_assistant\data\M.Tech_IV.pdf"
+]
+# adjust path as needed
 
 converter = DocumentConverter()
-result = converter.convert(PDF_PATH)
+results = [converter.convert(pdf_path) for pdf_path in PDF_PATHS]
+
+result = converter.convert(PDF_PATHS)
 dl_doc = result.document
 
 # ---------------------------------------------------------------
